@@ -1,0 +1,44 @@
+.active_green_button {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    margin: 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .inactive_gray_button {
+    background-color: grey; /* Green */
+    border: none;
+    color: white;
+    margin: 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .new_trade_form{
+    width: 30%;
+    text-align: center;
+    border: 5px solid rgb(234, 234, 243);
+    display: inline-block;
+    justify-content: center;
+    border-top: 30%;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .input_box{
+    width: 90%;
+    padding: 2%;
+    margin: 1%;
+    box-sizing: border-box;
+    background-color: rgb(234, 234, 243);
+  }
+
+
