@@ -1,44 +1,65 @@
 .active_green_button {
-    background-color: #4caf50; /* Green */
-    border: none;
-    color: white;
-    margin: 5px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  margin: 5px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
-  .inactive_gray_button {
-    background-color: grey; /* Green */
-    border: none;
-    color: white;
-    margin: 5px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+.inactive_gray_button {
+  background-color: grey; /* Green */
+  border: none;
+  color: white;
+  margin: 5px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
-  .new_trade_form{
-    width: 30%;
-    text-align: center;
-    border: 5px solid rgb(234, 234, 243);
-    display: inline-block;
-    justify-content: center;
-    border-top: 30%;
-    text-align: left;
-    font-weight: bold;
-  }
+.new_trade_form {
+  width: 30%;
+  text-align: center;
+  border: 2px solid rgb(234, 234, 243);
+  display: inline-block;
+  justify-content: center;
+  border-top: 30%;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 3%;
+  border-top: 100px solid rgb(234, 234, 243);
+}
 
-  .input_box{
-    width: 90%;
-    padding: 2%;
-    margin: 1%;
-    box-sizing: border-box;
-    background-color: rgb(234, 234, 243);
-  }
+.input_box {
+  width: 100%;
+  padding: 2%;
+  margin-bottom: 3%;
+  box-sizing: border-box;
+  background-color: rgb(234, 234, 243);
+  font-size: small;
+  font-weight: bold;
+  color: rgb(172, 172, 204)
+}
 
+.input_box::placeholder{
+  color: rgb(172, 172, 204);
+}
 
+form {
+  margin: 5%;
+  margin-bottom: 10%;
+}
+
+label {
+  color: gray;
+  font-size: smaller;
+}
+
+.button_div{
+  text-align: center;
+}

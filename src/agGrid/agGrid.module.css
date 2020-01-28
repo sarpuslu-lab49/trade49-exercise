@@ -1,8 +1,8 @@
 .centered_grid {
-    background-color: gray;
+    background-color: white;
     margin-left: 22%;
     margin-right: 22%;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 .active_green_button {
@@ -13,19 +13,20 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline;
+    /* display: inline; */
     font-size: 16px;
-    justify-self: right;
+    /* justify-self: right; */
+    height: 30%;
   }
 
   .trades_for_symbol_header {
     justify-self: left; 
     display: inline-block;
-    align-items: start;
     justify-content: left;
   }
 
   .above_the_grid {
     display: flex;
     justify-content: space-between;
+    height: 150px;
   }

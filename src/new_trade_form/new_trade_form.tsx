@@ -1,13 +1,29 @@
-import React, { Component } from "react";
+import React, { Component, ChangeEvent } from "react";
 import css_classes from "./new_trade_form.module.css";
+import { RouteComponentProps } from "react-router-dom";
 
-class NewTradeForm extends Component {
+interface IProps extends RouteComponentProps {
+  symbols: string[];
+}
+
+interface IState {
+  trade_form: {
+    symbol: string;
+    time: string;
+    quantity: number;
+    price: number;
+    [key: string]: any;
+  };
+  trade_form_filled: boolean;
+}
+
+class NewTradeForm extends Component<IProps, IState> {
   state = {
     trade_form: {
-      symbol: null,
-      time: null,
-      quantity: null,
-      price: null
+      symbol: "",
+      time: "",
+      quantity: 0,
+      price: 0
     },
     trade_form_filled: false
   };
@@ -15,14 +31,15 @@ class NewTradeForm extends Component {
   componentDidUpdate() {
     //checking if all the form fields are truthy
     let conditions_array = Object.values(this.state.trade_form);
-    let conditions_all_true = conditions_array.every((elem)=>{return elem})
+    let conditions_all_true = conditions_array.every(elem => {
+      return elem;
+    });
 
     //based on the conditions set a flag to activate or deactivate submit buttons
-    if (conditions_all_true && !this.state.trade_form_filled
-    ) {
+    if (conditions_all_true && !this.state.trade_form_filled) {
       this.setState({ trade_form_filled: true });
     }
-    if (!conditions_all_true && this.state.trade_form_filled){
+    if (!conditions_all_true && this.state.trade_form_filled) {
       this.setState({ trade_form_filled: false });
     }
     console.log(this.state);
@@ -42,18 +59,24 @@ class NewTradeForm extends Component {
     this.props.history.push("/");
   };
 
-  inputChangedHandler = (event, inputIdentifier) => {
+  inputChangedHandler = (
+    event: ChangeEvent,
+    inputIdentifier: keyof IState["trade_form"]
+  ) => {
     //create a copy of the current state trade_form
-    const updated_trade_form = {
+    const updated_trade_form: IState["trade_form"] = {
       ...this.state.trade_form
     };
 
     //update that copy
-    updated_trade_form[inputIdentifier] = event.target.value;
+
+    updated_trade_form[
+      inputIdentifier
+    ] = (event.target as HTMLInputElement).value;
 
     //update the state trade_form
-    this.setState(() => {
-      this.state.trade_form = updated_trade_form;
+    this.setState({
+      trade_form: updated_trade_form
     });
 
     //checking if all the form fields are truthy, set a flag to render the color of submit buttons
@@ -84,8 +107,11 @@ class NewTradeForm extends Component {
 
     return (
       <div className={css_classes.new_trade_form}>
+        <div></div>
         <form>
-          <label for="symbols" style={{display:"block"}}>Symbol</label>
+          <label htmlFor="symbols" style={{ display: "block" }}>
+            Symbol
+          </label>
           <select
             name="symbols"
             placeholder="Select"
@@ -97,9 +123,10 @@ class NewTradeForm extends Component {
             </option>
             {symbol_dropdown_options}
           </select>
-          
 
-          <label for="execution_time" style={{display:"block"}}>Time</label>
+          <label htmlFor="execution_time" style={{ display: "block" }}>
+            Time
+          </label>
           <input
             name="execution_time"
             type="text"
@@ -107,8 +134,10 @@ class NewTradeForm extends Component {
             className={css_classes.input_box}
             onChange={event => this.inputChangedHandler(event, "time")}
           ></input>
-          
-          <label for="num_shares" style={{display:"block"}}>Quantity</label>
+
+          <label htmlFor="num_shares" style={{ display: "block" }}>
+            Quantity
+          </label>
           <input
             name="num_shares"
             type="numeric"
@@ -117,7 +146,9 @@ class NewTradeForm extends Component {
             onChange={event => this.inputChangedHandler(event, "quantity")}
           ></input>
 
-          <label for="price_per_share" style={{display:"block"}}>Price</label>
+          <label htmlFor="price_per_share" style={{ display: "block" }}>
+            Price
+          </label>
           <input
             name="price_per_share"
             type="numeric"
@@ -129,35 +160,36 @@ class NewTradeForm extends Component {
 
           <br></br>
 
-          <button
-            onClick={this.save_exit_handler}
-            className={
-              this.state.trade_form_filled
-                ? css_classes.active_green_button
-                : css_classes.inactive_gray_button
-            }
-          >
-            Save & Exit
-          </button>
+          <div className={css_classes.button_div}>
+            <button
+              onClick={this.save_exit_handler}
+              className={
+                this.state.trade_form_filled
+                  ? css_classes.active_green_button
+                  : css_classes.inactive_gray_button
+              }
+            >
+              Save & Exit
+            </button>
 
-          <button
-            onClick={this.save_add_another_handler}
-            className={
-              this.state.trade_form_filled
-                ? css_classes.active_green_button
-                : css_classes.inactive_gray_button
-            }
-          >
-            Save & Add Another
-          </button>
+            <button
+              onClick={this.save_add_another_handler}
+              className={
+                this.state.trade_form_filled
+                  ? css_classes.active_green_button
+                  : css_classes.inactive_gray_button
+              }
+            >
+              Save & Add Another
+            </button>
 
-          <button
-            onClick={this.exit_handler}
-            className={css_classes.active_green_button}
-          >
-            Exit
-          </button>
-
+            <button
+              onClick={this.exit_handler}
+              className={css_classes.active_green_button}
+            >
+              Exit
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -7,5 +7,9 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  
+  margin-top:1%;
+}
+
+.pie_chart_main_div {
+  margin-bottom: 3%;
 }
