@@ -57,65 +57,6 @@ class App extends Component<RouteComponentProps, IState> {
   }
     
   componentDidMount() {
-    // const config = { headers: {'Content-Type': 'application/json','Cache-Control' : 'no-cache'}};
-
-    // axios.get("http://localhost:5000/api/trades", config).then(response => {
-    //   //fet raw data which has symbol, percentage, quantity and price fields
-    //   let trades_data:IState["portfolio_sorted"] = response.data;
-    //   //add the amount field for each trade
-    //   for (let trade of trades_data) {
-    //     trade.amount = trade.qty * trade.price;
-    //   }
-
-
-    //   let portfolio_summed: {symbol: string, qty: number, amount:number, percentage?:number}[];
-    //   portfolio_summed = _(trades_data)
-    //     .groupBy("symbol")
-    //     .map((objs, key) => {
-    //       return {
-    //         symbol: key,
-    //         qty: _.sumBy(objs, "qty"),
-    //         amount: _.sumBy(objs, "amount")
-    //       };
-    //     })
-    //     .value();
-
-    //   //calculate the total size of the portfolio in dollars
-    //   let total_amount = 0;
-    //   for (const elem of portfolio_summed) {
-    //     total_amount = total_amount + elem.amount;
-    //   }
-
-    //   //calculate the percentage of each element in the portfolio
-    //   for (let elem of portfolio_summed) {
-    //     elem.percentage = (elem.amount / total_amount) * 100;
-    //   }
-
-    //   //sort the portfolio-wise values first by percentage then by the symbol name alphabetically
-    //   let portfolio_sorted = _.orderBy(
-    //     portfolio_summed,
-    //     ["percentage", "symbol"],
-    //     ["desc", "desc"]
-    //   );
-
-    //   //get arrays of values to be sent as props to highcharts
-    //   let symbols: string[] = [...portfolio_sorted.map(x => x.symbol)];
-    //   let percentages: number[] = [...portfolio_sorted.map(x => x.percentage)] as number[];
-    //   let amounts: number[] = [...portfolio_sorted.map(x => x.amount)];
-    //   let quantities: number[] = [...portfolio_sorted.map(x => x.qty)];
-
-    //   //update the state with raw incoming data and arrays describing the portfolio
-    //   this.setState(
-    //     {
-    //       trades_data: trades_data,
-    //       symbols: symbols,
-    //       percentages: percentages,
-    //       amounts: amounts,
-    //       quantities: quantities
-    //     }
-    //   );
-    // });
-
     this.fetchData();
   }
 
