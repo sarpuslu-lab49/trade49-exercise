@@ -167,6 +167,8 @@ class App extends Component<RouteComponentProps, IState> {
       let amounts: number[] = [...portfolio_sorted.map(x => x.amount)];
       let quantities: number[] = [...portfolio_sorted.map(x => x.qty)];
 
+
+      // console.log("data fetcher called!");
       //update the state with raw incoming data and arrays describing the portfolio
       this.setState(
         {
@@ -206,7 +208,7 @@ class App extends Component<RouteComponentProps, IState> {
               path="/addTrade"
               exact
               render={routeProps => (
-                <NewTradeForm {...routeProps} symbols={this.state.symbols} />
+                <NewTradeForm {...routeProps} symbols={this.state.symbols} dataFetcher={this.fetchData}/>
               )}
             />
             <Route
