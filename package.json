@@ -18,7 +18,7 @@
     "ag-grid-community": "^22.1.1",
     "ag-grid-react": "^22.1.1",
     "axios": "^0.19.2",
-    "highcharts": "^8.0.0",
+    "highcharts": "^8.1.1",
     "highcharts-react-official": "^2.2.2",
     "i": "^0.3.6",
     "json-server": "^0.15.1",
